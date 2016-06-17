@@ -3,7 +3,8 @@
 module.exports = {
   config: {
     floatingClassName: 'floating',
-    delegateEvents: false
+    delegateEvents: false,
+    scope: ""
   },
   init: function initializeFloatingLabel (opt) {
     this._eventsDelegated = false
@@ -33,7 +34,14 @@ module.exports = {
   */
   evaluateInputs: function evaluateInputs () {
     var self = this
-    var inputs = document.querySelectorAll('input[type="text"], input[type="password"], input[type="email"], input[type="search"], input[type="url"], input[type="tel"], input[type="number"], textarea')
+    var inputs = document.querySelectorAll(
+      self.config.scope + ' input[type="text"], ' +
+      self.config.scope + ' input[type="password"], ' +
+      self.config.scope + ' input[type="email"], ' +
+      self.config.scope + ' input[type="search"], ' +
+      self.config.scope + ' input[type="url"], ' +
+      self.config.scope + ' input[type="tel"], ' +
+      self.config.scope + ' input[type="number"], textarea')
 
     function showHideLabel (input, label) {
       if (input.value.length) {

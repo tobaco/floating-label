@@ -167,6 +167,27 @@
         </div>
         <form method="POST" action="javascript:void(0);" enctype="application/x-www-form-urlencoded" role="form">
             <div class="initial no-value">
+                <label for="no-value_nofloat">No value</label>
+                <input type="text" name="no-value" id="no-value_nofloat" placeholder="No value" />
+            </div>
+            <div class="initial value">
+                <label for="value_nofloat">Initial value</label>
+                <input type="text" name="value" id="value_nofloat" value="Initial value" />
+            </div>
+            <div class="initial no-value textarea">
+                <label for="no-value-textarea_nofloat">No value on a textarea</label>
+                <textarea name="no-value-textarea" id="no-value-textarea_nofloat" placeholder="No value"></textarea>
+            </div>
+            <div class="initial value textarea">
+                <label for="value-textarea_nofloat">Initial value on a textarea</label>
+                <textarea name="value-textarea" id="value-textarea_nofloat">Initial value</textarea>
+            </div>
+            <div class="initial no-label">
+                <input type="text" name="no-label" id="no-label_nofloat" placeholder="This input doesn't have a label">
+            </div>
+        </form>
+        <form method="POST" class="floatform" action="javascript:void(0);" enctype="application/x-www-form-urlencoded" role="form">
+            <div class="initial no-value">
                 <label for="no-value">No value</label>
                 <input type="text" name="no-value" id="no-value" placeholder="No value" />
             </div>
@@ -208,6 +229,12 @@
     </div>
     <script src="node_modules/es5-shim/es5-shim.min.js"></script>
     <script src="dist/floatingLabel.js"></script>
-    <script>floatingLabel.init();</script>
+    <script>
+        floatingLabel.init({
+            floatingClassName: 'floating', // defaults to 'floating'
+            delegateEvents: true, // defaults to false
+            scope: '.floatform'
+        });
+    </script>
 </body>
 </html>
