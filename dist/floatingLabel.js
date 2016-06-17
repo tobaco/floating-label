@@ -42,6 +42,7 @@ module.exports = {
       self.config.scope + ' input[type="search"], ' +
       self.config.scope + ' input[type="url"], ' +
       self.config.scope + ' input[type="tel"], ' +
+      self.config.scope + ' select, ' +
       self.config.scope + ' input[type="number"], textarea')
 
     function showHideLabel (input, label) {
@@ -66,7 +67,7 @@ module.exports = {
         return
       }
 
-      if ((inputEl.nodeName === 'INPUT' && typeRe.test(inputEl.getAttribute('type'))) || inputEl.nodeName === 'TEXTAREA') {
+      if ((inputEl.nodeName === 'INPUT' && typeRe.test(inputEl.getAttribute('type'))) || inputEl.nodeName === 'TEXTAREA' || inputEl.nodeName === 'SELECT') {
         showHideLabel(inputEl, labelEl)
       }
     }
